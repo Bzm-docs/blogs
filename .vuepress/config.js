@@ -73,7 +73,7 @@ module.exports = {
         vssueConfig: {
             platform: 'github',
             owner: 'qianzai',
-            repo: 'myblog',
+            repo: 'qianzai',
             clientId: 'aa103089e804f79c133d',
             clientSecret: '4163b24c515bb146141e49bbdafb9991e89672a3',
         }
