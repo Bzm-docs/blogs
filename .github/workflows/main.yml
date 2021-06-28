@@ -11,7 +11,7 @@ jobs:
         uses: jenkey2011/vuepress-deploy@master
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          TARGET_REPO: qianzai/myblog
+          TARGET_REPO: Bzm-docs/blogs
           TARGET_BRANCH: gh-pages
           BUILD_SCRIPT: npm install && npm run build && cp google1d4447d38777e3f0.html dist
           BUILD_DIR: dist
