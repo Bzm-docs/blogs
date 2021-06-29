@@ -72,8 +72,8 @@ module.exports = {
         //github
         vssueConfig: {
             platform: 'github',
-            owner: 'Bzm-docs',
-            repo: 'blogs',
+            owner: 'qianzai',
+            repo: 'qianzai',
             clientId: 'aa103089e804f79c133d',
             clientSecret: 'fdeb8ffe29109abbacbd1f9d41b78f9ac7767c89',
         }
