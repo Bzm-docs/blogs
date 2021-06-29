@@ -20,6 +20,7 @@ publish: false
 title: 烤鸭的做法
 date: 2021-05-08
 autoIgnore: false
+autoSort: 1000
 #autoGroup-1: 数组方法
 categories:
  - 烹饪
@@ -27,7 +28,6 @@ tags:
  - 烤
 isShowComments: true
 publish: true
-autoSort: 1000
 sticky:
 - 1
 ---
