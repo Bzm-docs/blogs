@@ -75,7 +75,7 @@ module.exports = {
             owner: 'Bzm-docs',
             repo: 'blogs',
             clientId: 'aa103089e804f79c133d',
-            clientSecret: '4163b24c515bb146141e49bbdafb9991e89672a3',
+            clientSecret: 'fdeb8ffe29109abbacbd1f9d41b78f9ac7767c89',
         }
         //gitee
 
