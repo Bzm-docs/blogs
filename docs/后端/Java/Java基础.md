@@ -7,6 +7,7 @@ categories:
   - 后端
 tags:
   - Java
+  - 面试
 isShowComments: true
 publish: true
 ---
@@ -299,5 +300,187 @@ public class Demo {
     }
 }
 ```
+
+:::
+
+### 14. 初始化考察，请指出下面程序的运行结果。
+
+```java
+public class InitialTest {
+    public static void main(String[] args) {
+        A ab = new B();
+        ab = new B();
+    }
+}
+class A {
+    static { // 父类静态代码块
+        System.out.print("A");
+    }
+    public A() { // 父类构造器
+        System.out.print("a");
+    }
+}
+class B extends A {
+    static { // 子类静态代码块
+        System.out.print("B");
+    }
+    public B() { // 子类构造器
+        System.out.print("b");
+    }
+}
+```
+
+::: details 解析
+
+执行结果：ABabab，两个考察点：
+
+1）静态变量只会初始化（执行）一次。
+
+2）当有父类时，完整的初始化顺序为：父类静态变量（静态代码块）->子类静态变量（静态代码块）->父类非静态变量（非静态代码块）->父类构造器 ->子类非静态变量（非静态代码块）->子类构造器 。
+
+:::
+
+### 15. 抽象类（abstract class）和接口（interface）有什么区别？
+
+::: details 解析
+
+- 抽象类只能单继承，接口可以多实现。
+
+- 抽象类可以有构造方法，接口中不能有构造方法。
+
+- 抽象类中可以有成员变量，接口中没有成员变量，只能有常量（默认就是 public static final）
+
+- 抽象类中可以包含非抽象的方法，在 Java 7 之前接口中的所有方法都是抽象的，在 Java 8 之后，接口支持非抽象方法：default 方法、静态方法等。Java 9 支持私有方法、私有静态方法。
+
+- 抽象类中的抽象方法类型可以是任意修饰符，Java 8 之前接口中的方法只能是 public 类型，Java 9 支持 private 类型。
+
+**设计思想的区别：**
+
+接口是自上而下的抽象过程，接口规范了某些行为，是对某一行为的抽象。我需要这个行为，我就去实现某个接口，但是具体这个行为怎么实现，完全由自己决定。
+
+抽象类是自下而上的抽象过程，抽象类提供了通用实现，是对某一类事物的抽象。我们在写实现类的时候，发现某些实现类具有几乎相同的实现，因此我们将这些相同的实现抽取出来成为抽象类，然后如果有一些差异点，则可以提供抽象方法来支持自定义实现。
+
+> 我在网上看到有个说法，挺形象的：
+>
+> 普通类像亲爹 ，他有啥都是你的。
+>
+> 抽象类像叔伯，有一部分会给你，还能指导你做事的方法。
+>
+> 接口像干爹，可以给你指引方法，但是做成啥样得你自己努力实现。
+
+:::
+
+### 16. Java 中的 final 关键字有哪些用法？
+
+::: details 解析
+
+修饰类：该类不能再派生出新的子类，不能作为父类被继承。因此，一个类不能同时被声明为 abstract 和 final。
+
+修饰方法：该方法不能被子类重写。
+
+修饰变量：该变量必须在声明时给定初值，而在以后只能读取，不可修改。 如果变量是对象，则指的是引用不可修改，但是对象的属性还是可以修改的。
+
+```java
+public class FinalDemo {
+    // 不可再修改该变量的值
+    public static final int FINAL_VARIABLE = 0;
+    // 不可再修改该变量的引用，但是可以直接修改属性值
+    public static final User USER = new User();
+    public static void main(String[] args) {
+        // 输出：User(id=0, name=null, age=0)
+        System.out.println(USER);
+        // 直接修改属性值
+        USER.setName("test");
+        // 输出：User(id=0, name=test, age=0)
+        System.out.println(USER);
+    }
+}
+```
+
+:::
+
+### 17. try、catch、finally 考察，请指出下面程序的运行结果。
+
+```java
+public class TryDemo {
+    public static void main(String[] args) {
+        System.out.println(test());
+    }
+    public static int test() {
+        try {
+            return 1;
+        } catch (Exception e) {
+            return 2;
+        } finally {
+            System.out.print("3");
+        }
+    }
+}
+```
+
+::: details 解析
+
+执行结果：31。
+
+try、catch。finally 的基础用法，在 return 前会先执行 finally 语句块，所以是先输出 finally 里的 3，再输出 return 的 1。
+
+:::
+
+### 18. wait() 和 sleep() 方法的区别
+
+::: details 解析
+
+来源不同：sleep() 来自 Thread 类，wait() 来自 Object 类。
+
+对于同步锁的影响不同：sleep() 不会该表同步锁的行为，如果当前线程持有同步锁，那么 sleep 是不会让线程释放同步锁的。wait() 会释放同步锁，让其他线程进入 synchronized 代码块执行。
+
+使用范围不同：sleep() 可以在任何地方使用。wait() 只能在同步控制方法或者同步控制块里面使用，否则会抛 IllegalMonitorStateException。
+
+恢复方式不同：两者会暂停当前线程，但是在恢复上不太一样。sleep() 在时间到了之后会重新恢复；wait() 则需要其他线程调用同一对象的 notify()/nofityAll() 才能重新恢复。
+:::
+
+### 19. Thread 调用 start() 方法和调用 run() 方法的区别
+
+::: details 解析
+
+run()：普通的方法调用，在主线程中执行，不会新建一个线程来执行。
+
+start()：新启动一个线程，这时此线程处于就绪（可运行）状态，并没有运行，一旦得到 CPU 时间片，就开始执行 run() 方法。
+
+:::
+
+### 20. synchronized 和 Lock 的区别
+
+::: details 解析
+
+1）Lock 是一个接口；synchronized 是 Java 中的关键字，synchronized 是内置的语言实现；
+
+2）Lock 在发生异常时，如果没有主动通过 unLock() 去释放锁，很可能会造成死锁现象，因此使用 Lock 时需要在 finally 块中释放锁；synchronized 不需要手动获取锁和释放锁，在发生异常时，会自动释放锁，因此不会导致死锁现象发生；
+
+3）Lock 的使用更加灵活，可以有响应中断、有超时时间等；而 synchronized 却不行，使用 synchronized 时，等待的线程会一直等待下去，直到获取到锁；
+
+4）在性能上，随着近些年 synchronized 的不断优化，Lock 和 synchronized 在性能上已经没有很明显的差距了，所以性能不应该成为我们选择两者的主要原因。官方推荐尽量使用 synchronized，除非 synchronized 无法满足需求时，则可以使用 Lock。
+
+:::
+
+### 21. List、Set、Map 三者的区别?
+
+::: details 解析
+
+List（对付顺序的好帮手）： List 接口存储一组不唯一（可以有多个元素引用相同的对象）、有序的对象。
+
+Set（注重独一无二的性质）：不允许重复的集合，不会有多个元素引用相同的对象。
+
+Map（用 Key 来搜索的专业户）: 使用键值对存储。Map 会维护与 Key 有关联的值。两个 Key 可以引用相同的对象，但 Key 不能重复，典型的 Key 是 String 类型，但也可以是任何对象。
+
+:::
+
+### 22. ArrayList 和 Vector 的区别。
+
+::: details 解析
+
+Vector 和 ArrayList 几乎一致，唯一的区别是 Vector 在方法上使用了 synchronized 来保证线程安全，因此在性能上 ArrayList 具有更好的表现。
+
+有类似关系的还有：StringBuilder 和 StringBuffer、HashMap 和 Hashtable。
 
 :::
