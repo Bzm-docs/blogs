@@ -1,3 +1,15 @@
+---
+date: 2021-04-01
+autoIgnore: false
+autoSort: 1000
+categories:
+ - 后端
+tags:
+ - Nginx
+isShowComments: true
+publish: true
+---
+
 # Nginx入门
 
 ## 为什么需要Nginx

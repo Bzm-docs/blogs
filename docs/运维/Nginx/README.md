@@ -5,8 +5,7 @@ autoSort: 1000
 categories:
  - 后端
 tags:
- - Java
- - Mybatis
+ - Nginx
 isShowComments: true
 publish: true
 ---
