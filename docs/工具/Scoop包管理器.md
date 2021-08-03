@@ -19,4 +19,4 @@ publish: true
 
 ## 参考资料
 
-- 
+- [Windows下Scoop安装、配置与使用](https://blog.csdn.net/luoyooi/article/details/102990113)
