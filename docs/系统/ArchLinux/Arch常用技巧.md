@@ -20,3 +20,7 @@ publish: true
 pacman -R $(pacman -Qtdq)
 ```
 
+
+
+[使用rdesktop远程连接Windows（Failed to connect, CredSSP required by server (check if server has disabled old TLS versions, if yes use -V option) .）](https://blog.csdn.net/qq_37274323/article/details/82086031)
+

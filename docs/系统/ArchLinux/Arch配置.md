@@ -59,7 +59,7 @@ sudo pacman -Syu
 
 
 ```sh
-sudo pacman -S git wget curl base-devel xorg networkmanager netctl pcsclite
+sudo pacman -S git wget curl base-devel xorg networkmanager netctl pcsclite nerd-fonts
 
 # 时间同步
 sudo timedatectl set-ntp true
@@ -98,6 +98,12 @@ sudo npm install -g neovim
 
 > PlugInstall
 
+```shell
+"Plug 'junegunn/vim-peekaboo'
+```
+
+
+
 ### FZF
 
 ```shell
@@ -109,6 +115,18 @@ ln ~/.fzf/bin/fzf /usr/local/bin/
 # ag
 sudo pacman -S the_silver_searcher
 ```
+
+### Ranger
+
+```shell
+cd ~
+sudo pacman -S ranger w3m highlight ueberzug nerd-fonts atool p7zip
+
+vim ~/.config/ranger/rc.conf  
+default_linemode devicons2
+```
+
+
 
 ### 常用软件
 
