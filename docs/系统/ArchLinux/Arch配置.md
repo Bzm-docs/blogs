@@ -87,7 +87,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 ### neovim
 
 ```shell
-sudo pacman -S neovim python-pip nodejs npm
+sudo pacman -S neovim python-pip nodejs npm xclip
 sudo pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 sudo pip3 install --user neovim
 python3 -m pip install --user --upgrade pynvim
@@ -142,5 +142,11 @@ sudo pacman -S typora
 
 # 网易云音乐
 sudo pacman -S netease-cloud-music 
+
+sudo pacman -S xmind-zen
+
+yay -S wps-office-cn wps-office-mui-zh-cn ttf-wps-fonts python-xlsx2csv
+
+sudo pacman -S flameshot dunst 
 ```
 
