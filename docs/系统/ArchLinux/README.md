@@ -67,3 +67,16 @@ float alpha = 0.75;
 | Ctrl+Shift+C | 复制 |      |
 | Ctrl+Shift+V | 粘贴 |      |
 |              |      |      |
+
+
+
+### fzf
+
+[模糊搜索神器fzf](https://segmentfault.com/a/1190000011328080)
+
+| 快捷键 | 作用                   |      |
+| ------ | ---------------------- | ---- |
+| CTRL-T | 打开fzf窗口            |      |
+| CTRL-R | 列出history命令        |      |
+| ALT-C  | 列出当前文件夹下的目录 |      |
+
