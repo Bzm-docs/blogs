@@ -150,3 +150,19 @@ yay -S wps-office-cn wps-office-mui-zh-cn ttf-wps-fonts python-xlsx2csv
 sudo pacman -S flameshot dunst 
 ```
 
+
+
+## 问题
+
+Arch 虚拟机下KDE 分辨率问题（闪一下又还原）
+
+```shell
+pacman -S open-vm-tools gtkmm gtkmm3 gtk2 xf86-input-vmouse xf86-video-vmware mesa
+systemctl start vmware-vmblock-fuse.service
+systemctl enable vmware-vmblock-fuse.service
+systemctl enable vmtoolsd.service
+nano /etc/mkinitcpio.conf #修改MODULES=( )为
+MODULES=(vsock vmw_vsock_vmci_transport vmw_balloon vmw_vmci vmwgfx)
+mkinitcpio -p linux或 mkinitcpio -P
+```
+
