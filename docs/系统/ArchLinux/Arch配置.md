@@ -165,4 +165,3 @@ nano /etc/mkinitcpio.conf #修改MODULES=( )为
 MODULES=(vsock vmw_vsock_vmci_transport vmw_balloon vmw_vmci vmwgfx)
 mkinitcpio -p linux或 mkinitcpio -P
 ```
-
