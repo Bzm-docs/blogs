@@ -15,8 +15,7 @@ docker run -p 6379:6379 --restart always -v $PWD/data:/data  -d redis:3.2 redis-
 $ docker pull mysql:5.7
 
 # 运行mysql
-$ sudo docker run -d -p 3306:3306 --restart always --name mysql01 -e MYSQL_ROOT_PASSWORD=123456 -d -v /media/docker-V/mysql/data:/var/lib/mysql  mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-
+$ sudo docker run -d -p 3306:3306 --restart always --name mysql01 -e MYSQL_ROOT_PASSWORD=123456 -d -v /var/local/docker/mysql/data:/var/lib/mysql  mysql:5.7 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 
 # 进入docker本地连接mysql客户端
 $ sudo docker exec -it mysql bash
@@ -100,4 +99,3 @@ docker run -d --hostname gitlab.example.com -p 8443:443 -p 80:80 -p 2222:22 --na
 ```
 docker run -d --hostname gitlab.example.com -p 8443:443 -p 80:80 -p 2222:22 --name gitlab1 --restart always -v /home/docker/gitlab/config:/etc/gitlab -v /home/docker/gitlab/logs:/var/log/gitlab -v /home/docker/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce:latest          
 ```
-
