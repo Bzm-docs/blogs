@@ -3,16 +3,16 @@ date: 2021-07-29
 autoIgnore: false
 autoSort: 1000
 categories:
- - 系统
+  - 系统
 tags:
- - ArchLinux
+  - ArchLinux
 isShowComments: true
 publish: true
 ---
 
-# Arch配置
+# Arch 配置
 
-### 安装openssh服务
+### 安装 openssh 服务
 
 ```shell
 pacman -S openssh //安装openssh服务
@@ -26,14 +26,14 @@ vim /etc/ssh/sshd_config //编辑sshd配置文件
   StrictModes yes      //将注释#号去掉
 ```
 
-### 配置静态ip
+### 配置静态 ip
 
 ```shell
 sudo systemctl status systemd-networkd
 ip add //  或者 ifconfig
 ```
 
-如图可见我的网卡名称是：`ens32` ，所以我们在在 `/etc/systemd/network` 目录下添加配置文件 `10-static-enp1s0.network` 
+如图可见我的网卡名称是：`ens32` ，所以我们在在 `/etc/systemd/network` 目录下添加配置文件 `10-static-enp1s0.network`
 
 ![image-20210827101110013](media/Arch配置.assets/image-20210827101110013-16300304266261.png)
 
@@ -57,7 +57,7 @@ sudo systemctl reenable systemd-networkd
 
 > 重启
 
-### 创建用户 
+### 创建用户
 
 ```shell
 useradd -m -G wheel bzm
@@ -69,7 +69,7 @@ vim /etc/sudoers
 su - bzm
 ```
 
-### archlinuxcn源
+### archlinuxcn 源
 
 ```shell
 sudo vim /etc/pacman.conf
@@ -86,8 +86,6 @@ yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 
 sudo pacman -Syu
 ```
-
-
 
 ```sh
 sudo pacman -S git wget curl base-devel xorg networkmanager netctl pcsclite nerd-fonts
@@ -133,8 +131,6 @@ sudo npm install -g neovim
 "Plug 'junegunn/vim-peekaboo'
 ```
 
-
-
 ### FZF
 
 ```shell
@@ -153,11 +149,19 @@ sudo pacman -S the_silver_searcher
 cd ~
 sudo pacman -S ranger w3m highlight ueberzug nerd-fonts atool p7zip
 
-vim ~/.config/ranger/rc.conf  
+vim ~/.config/ranger/rc.conf
 default_linemode devicons2
 ```
 
+### 微信
 
+https://github.com/huan/docker-wechat
+
+https://github.com/vufa/deepin-wine-wechat-arch
+
+### 代理
+
+https://cdn.v2free.net/doc/#/linux/clash
 
 ### 常用软件
 
@@ -172,20 +176,18 @@ sudo pacman -S chromium
 sudo pacman -S typora
 
 # 网易云音乐
-sudo pacman -S netease-cloud-music 
+sudo pacman -S netease-cloud-music
 
 sudo pacman -S xmind-zen
 
 yay -S wps-office-cn wps-office-mui-zh-cn ttf-wps-fonts python-xlsx2csv
 
-sudo pacman -S flameshot dunst 
+sudo pacman -S flameshot dunst
 ```
-
-
 
 ### 鼠标速度
 
-[修改Linux系统的鼠标滚轮的速度](https://zhuanlan.zhihu.com/p/126336905)
+[修改 Linux 系统的鼠标滚轮的速度](https://zhuanlan.zhihu.com/p/126336905)
 
 https://blog.csdn.net/qq_32767041/article/details/84034280
 
@@ -202,9 +204,7 @@ Shift_L,   Up,   Shift_L|Button4
 Shift_L,   Down, Shift_L|Button5
 ```
 
-
-
-Arch 虚拟机下KDE 分辨率问题（闪一下又还原）
+Arch 虚拟机下 KDE 分辨率问题（闪一下又还原）
 
 ```shell
 pacman -S open-vm-tools gtkmm gtkmm3 gtk2 xf86-input-vmouse xf86-video-vmware mesa
@@ -214,4 +214,23 @@ systemctl enable vmtoolsd.service
 nano /etc/mkinitcpio.conf #修改MODULES=( )为
 MODULES=(vsock vmw_vsock_vmci_transport vmw_balloon vmw_vmci vmwgfx)
 mkinitcpio -p linux或 mkinitcpio -P
+```
+
+### 修改键位
+
+```bash
+vim ~/.Xmodmap
+```
+
+将 ESC 键与 CapsLock 键交换位置
+
+```bash
+remove Lock = Caps_Lock
+keysym Escape = Caps_Lock
+keysym Caps_Lock = Escape
+add Lock = Caps_Lock
+```
+
+```bash
+xmodmap ~/.Xmodmap
 ```
