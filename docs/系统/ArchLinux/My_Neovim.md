@@ -24,6 +24,10 @@
 
 #### vim-markdown
 
+### Which Key
+
+https://github.com/folke/which-key.nvim
+
 ## 快捷键
 
 ### 内置快捷键
@@ -198,6 +202,8 @@ https://github.com/mg979/vim-visual-multi
 | `Ctrl-Down`/`Ctrl-Up` | 竖直的光标模式                   | <++> |
 | `n`/`N`               | 获取下一个\上一个                | <++> |
 | `[`/`]`               | 移动光标位置                     | <++> |
+| `q`                   | 跳过当前对象字符到下一个         | <++> |
+| `Q`                   | 取消选中当前对象字符             | <++> |
 | <++>                  | <++>                             | <++> |
 
 #### vim-hexokinase
@@ -215,3 +221,4 @@ https://github.com/RRethy/vim-hexokinase
 
 - [vim 多窗口操作---调整窗口尺寸](https://blog.csdn.net/qwaszx523/article/details/77750600)
 - [Vim 寄存器完全手册](https://harttle.land/2016/07/25/vim-registers.html)
+- [Vim 位置标记 mark](https://vimjc.com/vim-mark.html)

@@ -1,21 +1,21 @@
 ---
 date: 2020-05-08
 categories:
- - 运维
+  - 运维
 isShowComments: true
 publish: true
 ---
 
 # Shell 脚本调用方式
 
-> 在`Linux `运维开发中，无论是在`console`(控制台)，还是`shell`脚本中，使用的方法经常有这三种：`./my.sh `或 `source my.sh` 或 **. my.sh**
+> 在`Linux`运维开发中，无论是在`console`(控制台)，还是`shell`脚本中，使用的方法经常有这三种：`./my.sh`或 `source my.sh` 或 **. my.sh**
 
 **主要以下有几种方式：**
 
-| Command    | Explanation                                                  |
-| ---------- | ------------------------------------------------------------ |
-| **fork**   | 新开一个子 Shell 执行，子 Shell 可以从父 Shell 继承环境变量，但是子 Shell 中的环境变量不会带回给父 Shell。 |
-| **exec**   | 在同一个 Shell 内执行，但是父脚本中 `exec` 行之后的内容就不会再执行了 |
+| Command    | Explanation                                                                                                             |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **fork**   | 新开一个子 Shell 执行，子 Shell 可以从父 Shell 继承环境变量，但是子 Shell 中的环境变量不会带回给父 Shell。              |
+| **exec**   | 在同一个 Shell 内执行，但是父脚本中 `exec` 行之后的内容就不会再执行了                                                   |
 | **source** | 在同一个 Shell 中执行，在被调用的脚本中声明的变量和环境变量, 都可以在主脚本中进行获取和使用，相当于合并两个脚本在执行。 |
 
 ![1.shTo2.sh](media/Shell脚本调用方式.assets/1.shTo2.sh.png)
@@ -27,7 +27,7 @@ publish: true
 ```shell
 #!/usr/bin/env bash
 
-# 设置变量 A 
+# 设置变量 A
 A=1
 
 # 输出脚本开始运行时候的 PID
@@ -74,7 +74,7 @@ echo -e "In 2.sh: variable A=$A\n"
 ## fork
 
 ```shell
-[root@localhost test]# ./1.sh 
+[root@localhost test]# ./1.sh
 before exec/source/fork: PID for 1.sh = 3121
 In 1.sh: variable A=1
 ==> using fork by default…
@@ -104,7 +104,7 @@ In 2.sh: variable A=2
 
 ```
 
-> - 根据 PID 可以发现`2.sh `执行完成后，不再回到 `1.sh`
+> - 根据 PID 可以发现`2.sh`执行完成后，不再回到 `1.sh`
 > - 变量 A ：1>2
 
 ## source
@@ -124,5 +124,4 @@ In 1.sh: variable A=2
 ```
 
 > - 根据 PID 可以发现两者在同一进程里运行
-> - 变量 A ：1>2>2 
-
+> - 变量 A ：1>2>2

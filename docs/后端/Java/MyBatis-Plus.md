@@ -1,5 +1,10 @@
 # MyBatis-Plus
 
+## 参考资料
+
+- [MyBatis-Plus 官网](https://baomidou.com/)
+- [编程不良人 Mybatis-Plus](https://www.bilibili.com/video/BV1pK411W7Hu)
+
 # 引言
 
 [MyBatis-Plus (opens new window)](https://github.com/baomidou/mybatis-plus)（简称 MP）是一个 [MyBatis (opens new window)](https://www.mybatis.org/mybatis-3/)的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。
@@ -12,7 +17,7 @@
 
 ## 快速开始
 
-**以如下user表为例：**
+**以如下 user 表为例：**
 
 ```sql
 DROP TABLE IF EXISTS `user`;
@@ -37,9 +42,9 @@ SET FOREIGN_KEY_CHECKS = 1;
 </dependency>
 ```
 
-> 无需再引入mybatis
+> 无需再引入 mybatis
 
-yml配置数据库配置
+yml 配置数据库配置
 
 ```yaml
 spring:
@@ -51,7 +56,7 @@ spring:
     password: 123456
 ```
 
-Application主启动添加dao包扫描
+Application 主启动添加 dao 包扫描
 
 ```java{2}
 @SpringBootApplication
@@ -82,7 +87,7 @@ public class User {
 }
 ```
 
-DAO接口，继承BaseMapper该接口后，无需编写 mapper.xml 文件，即可获得CRUD功能
+DAO 接口，继承 BaseMapper 该接口后，无需编写 mapper.xml 文件，即可获得 CRUD 功能
 
 ```java
 public interface UserDAO extends BaseMapper<User> {
@@ -138,11 +143,3 @@ public class TestUserDAO {
 	}
 }
 ```
-
-
-
-## 参考资料
-
--  [MyBatis-Plus官网](https://baomidou.com/)
--  [编程不良人Mybatis-Plus](https://www.bilibili.com/video/BV1pK411W7Hu)
-

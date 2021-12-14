@@ -125,12 +125,6 @@ sudo npm config get registry
 sudo npm install -g neovim
 ```
 
-> PlugInstall
-
-```shell
-"Plug 'junegunn/vim-peekaboo'
-```
-
 ### FZF
 
 ```shell
