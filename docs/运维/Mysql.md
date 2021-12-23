@@ -14,9 +14,9 @@ autoNext: Httpd
 
 [[toc]]
 
-## 什么是数据库
+## 1. 什么是数据库
 
-### 数据库简介
+### 1.1. 数据库简介
 
 1、顾名思义，数据库(DB，database)是按照**数据结构**来**组织**、**存储**和**管理**数据的“仓库”。
 
@@ -24,7 +24,7 @@ autoNext: Httpd
 
 3、数据库可以通过统一的一些指令对数据进行**增、删、改、查**（Create，Retrive，Updata，Delete）等操作。
 
-### DBMS 与 DBS
+### 1.2. DBMS 与 DBS
 
 1、数据库管理系统（`DBMS`，`Database Management System`），在用户与操作系统之间，由相互关联的数据集合以及一组用于访问这些数据的程序组成。
 
@@ -32,7 +32,7 @@ autoNext: Httpd
 
 3、主流数据库管理系统：`Oracle`（甲骨文公司推出）、`MySQL`（开源）、`Microsoft SQL Server`、`SQLite`（轻型、嵌入式、Android 与 iOS 开发都使用该数据库）等。
 
-### 数据库分类
+### 1.3. 数据库分类
 
 1、数据库分为关系型数据库（`sql`数据库）与非关系型数据库（`no-sql`数据库）。两者的区别在于是否使用 SQL 语句作为操作的方式和方法。我们常见的数据库多属于关系型数据库。
 
@@ -44,7 +44,7 @@ autoNext: Httpd
 
 ---
 
-## Mysql 简介
+## 2. Mysql 简介
 
 - MySQL 是一个关系型数据库管理系统，由瑞典 MySQL AB 公司开发，目前属于 Oracle 公司。
 - MySQL 是最流行的[关系型数据库管理系统](https://baike.baidu.com/item/关系型数据库管理系统/696511)之一，在 WEB 应用方面，MySQL 是最好的 [RDBMS](https://baike.baidu.com/item/RDBMS/1048260) (Relational Database Management System，关系数据库管理系统) 应用软件之一。
@@ -52,7 +52,7 @@ autoNext: Httpd
 
 ![v2-22f78ac55ee443ca0cbcaf15d3e12cfc_1200x500](media/Mysql.assets/v2-22f78ac55ee443ca0cbcaf15d3e12cfc_1200x500-1623743421543.jpg)
 
-### Mysql 特点
+### 2.1. Mysql 特点
 
 1、可以处理拥有上千万条记录的大型数据；
 2、支持常见的 SQL 语句规范；
@@ -60,13 +60,13 @@ autoNext: Httpd
 4、良好的运行效率，有丰富信息的网络支持；
 5、调试、管理，优化简单（相对其他大型数据库）。
 
-### Mysql 安装
+### 2.2. Mysql 安装
 
-#### Linux 安装
+#### 2.2.1. Linux 安装
 
 > www.baidu.com
 
-#### docker 安装
+#### 2.2.2. docker 安装
 
 ```shell
  拉取镜像
@@ -78,13 +78,13 @@ $ sudo docker run -d -p 3306:3306 --restart always --name mysql01 -e MYSQL_ROOT_
 
 ---
 
-## MySQL 数据类型
+## 3. MySQL 数据类型
 
 - MySQL 中定义数据字段的类型对你数据库的优化是非常重要的。
 
 - MySQL 支持多种类型，大致可以分为三类：数值、日期/时间和字符串(字符)类型。
 
-### 数值类型
+### 3.1. 数值类型
 
 | 类型            | 大小                                          | 用途               |
 | :-------------- | :-------------------------------------------- | :----------------- |
@@ -97,7 +97,7 @@ $ sudo docker run -d -p 3306:3306 --restart always --name mysql01 -e MYSQL_ROOT_
 | DOUBLE          | 8 bytes                                       | 双精度 浮点数值    |
 | DECIMAL         | 对 DECIMAL(M,D) ，如果 M>D，为 M+2 否则为 D+2 | 小数值，金融计算   |
 
-### 字符串类型
+### 3.2. 字符串类型
 
 | 类型       | 大小                  | 用途                            |
 | :--------- | :-------------------- | :------------------------------ |
@@ -112,7 +112,7 @@ $ sudo docker run -d -p 3306:3306 --restart always --name mysql01 -e MYSQL_ROOT_
 | LONGBLOB   | 0-4 294 967 295 bytes | 二进制形式的极大文本数据        |
 | LONGTEXT   | 0-4 294 967 295 bytes | 极大文本数据                    |
 
-### 日期和时间类型
+### 3.3. 日期和时间类型
 
 | 类型      | 大小 ( bytes) | 范围                                                            | 格式                | 用途                     |
 | :-------- | :------------ | :-------------------------------------------------------------- | :------------------ | :----------------------- |
@@ -122,30 +122,30 @@ $ sudo docker run -d -p 3306:3306 --restart always --name mysql01 -e MYSQL_ROOT_
 | DATETIME  | 8             | 1000-01-01 00:00:00/9999-12-31 23:59:59                         | YYYY-MM-DD HH:MM:SS | 混合日期和时间值         |
 | TIMESTAMP | 4             | 时间戳，1970-01-01 00:00:00/2038 结束时间是第 **2147483647** 秒 | YYYYMMDD HHMMSS     | 混合日期和时间值，时间戳 |
 
-## 数据库的字段属性
+## 4. 数据库的字段属性
 
-### Unsigned 无符号
+### 4.1. Unsigned 无符号
 
 - 无符号的整数
 - 声明了该列不能声明为负数
 
-### Zerofill 填充零
+### 4.2. Zerofill 填充零
 
 在数字长度不够的数据前面填充 0，以达到设定的长度。
 
-### AUTO_INCREMENT 自增
+### 4.3. AUTO_INCREMENT 自增
 
 MySQL 的`AUTO_INCREMENT`属性可以用于在插入新的记录的时候，进行主键自增。
 
-### 非空 not Null
+### 4.4. 非空 not Null
 
 假设设置为 not null ，如果不给它赋值，就会报错! .
 
-### 4.5、默认
+### 4.5. 4.5、默认
 
 给字段设置默认值
 
-## 5 、数据库引擎
+## 5. 5 、数据库引擎
 
 `MySQL`数据库有多种存储引擎：比如：`MyISAM`、`InnoDB`、`MERGE`、`MEMORY(HEAP)`、`BDB(BerkeleyDB)`、EXAMPLE、FEDERATED、ARCHIVE、CSV、BLACKHOLE 等等，最常见的也就是`MyISAM`和`InnoDB`了
 
@@ -160,9 +160,9 @@ MySQL 的`AUTO_INCREMENT`属性可以用于在插入新的记录的时候，进�
 - `MyISAM`引擎是一种非事务性的引擎，提供高速存储和检索，以及全文搜索能力，适合数据仓库等查询频繁的应用。
 - `InnoDB`则是一种支持事务的引擎。给 MySQL 提供了具有提交，回滚和崩溃恢复能力的事务安全（ACID 兼容）存储引擎。
 
-## 3、Mysql 命令行
+## 6. 3、Mysql 命令行
 
-### 3.1、连接数据库
+### 6.1. 3.1、连接数据库
 
 ```shell
  mysql -h主机地址 -u用户名 -p用户密码
@@ -175,11 +175,11 @@ flush privileges;	--刷新权限
 exit; --退出连接
 ```
 
-### 3.2、操作数据库
+### 6.2. 3.2、操作数据库
 
 > 操作数据库>操作数据库中的表>操作数据库中表的数据
 
-#### 3.2.1、操作数据库
+#### 6.2.1. 3.2.1、操作数据库
 
 ```sql
 --创建数据库
@@ -195,7 +195,7 @@ use h1；
 show databases;
 ```
 
-#### 3.2.2、操作表
+#### 6.2.2. 3.2.2、操作表
 
 ```sql
 --创建表
@@ -232,9 +232,9 @@ ALTER TABLE `user1` DROP COLUMN `age1`
 DROP TABLE if EXISTS user1
 ```
 
-## Mysq 数据管理
+## 7. Mysq 数据管理
 
-### 外键（了解）
+### 7.1. 外键（了解）
 
 **数据库中为什么不推荐使用外键约束**
 
@@ -242,7 +242,7 @@ DROP TABLE if EXISTS user1
 
 [数据库中为什么不推荐使用外键约束](https://www.cnblogs.com/rjzheng/p/9907304.html)
 
-### SQL 语言共分为四大类
+### 7.2. SQL 语言共分为四大类
 
 **1. 数据定义语言 DDL**
 
@@ -290,7 +290,7 @@ SQL>ROLLBACK
 
 ---
 
-### 增加 INSERT
+### 7.3. 增加 INSERT
 
 MySQL 表中使用 **INSERT INTO** SQL 语句来插入数据。
 
@@ -303,7 +303,7 @@ INSERT INTO table_name ( field1, field2,...fieldN )
 INSERT INTO `t_user` (`id`, `name`, `age`) VALUES ('1', 'bzm', '20')
 ```
 
-### 删除 DELETE
+### 7.4. 删除 DELETE
 
 删除 MySQL 数据表中的记录。
 
@@ -318,7 +318,7 @@ DELETE FROM `t_user` WHERE (`id`='4')
 >
 > **总结：** > `delete`和`truncate table`的最大区别是`delete`可以通过`WHERE`语句选择要删除的记录。但执行得速度不快。而且还可以返回被删除的记录数。而`truncate table`无法删除指定的记录，而且不能返回被删除的记录。但它执行得非常快。
 
-### 修改 UPDATE
+### 7.5. 修改 UPDATE
 
 修改或更新 MySQL 中的数据，使用 SQL UPDATE 命令来操作。
 
@@ -331,7 +331,7 @@ UPDATE table_name SET field1=new-value1, field2=new-value2
 UPDATE `t_user` SET `age`='3' WHERE (`id`='1')
 ```
 
-### 查询 SELECT
+### 7.6. 查询 SELECT
 
 SELECT 语句来查询数据。
 
@@ -384,7 +384,7 @@ SELECT 100*3-1 AS 计算结果; -- 表达式
 SELECT studentno,StudentResult+1 AS '提分后' FROM result;
 ```
 
-### WHERE 子句
+### 7.7. WHERE 子句
 
 > 作用：用于检索数据表中 符合条件 的记录
 
@@ -434,7 +434,7 @@ FROM result
 WHERE NOT studentno=1000;
 ```
 
-#### 模糊查询
+#### 7.7.1. 模糊查询
 
 1.  like 是模糊查询关键字
 2.  %表示任意多个任意字符
@@ -451,7 +451,7 @@ select * from students where name like '黄_';
 select * from students where name like '黄%' or name like '%靖';
 ```
 
-#### 范围查询
+#### 7.7.2. 范围查询
 
 1.  between … and … 表示在一个连续的范围内查询
 2.  in 表示在一个非连续的范围内查询
@@ -464,14 +464,14 @@ select * from students where id between 3 and 8;
 select * from students where (not id between 3 and 8) and gender='男';
 ```
 
-#### 空判断查询
+#### 7.7.3. 空判断查询
 
 ```sql
 --查询没有填写身高的学生:
 select * from students where height is null;
 ```
 
-### 联表查询
+### 7.8. 联表查询
 
 [联表查询](https://my.oschina.net/u/4270970/blog/4120280/print)
 
@@ -517,7 +517,7 @@ INSERT INTO `EmployeeTB` VALUES ('5', '郑七', null);
 
 ```
 
-#### 内联结查询
+#### 7.8.1. 内联结查询
 
 ```sql
 SELECT e.employee_id, e.employee_name, d.dept_name
@@ -533,9 +533,9 @@ _上面两句查询的效果是一样的_
 
 ![image-20200609094624365](media/Mysql.assets/image-20200609094624365-1623743421544.png)
 
-#### 外联结查询：
+#### 7.8.2. 外联结查询：
 
-##### 左外联结：
+##### 7.8.2.1. 左外联结：
 
 ```sql
 SELECT e.employee_id, e.employee_name, d.dept_name
@@ -543,7 +543,7 @@ FROM EmployeeTB AS e
 LEFT OUTER JOIN DeptTB AS d ON d.dept_id=e.dept_id;
 ```
 
-##### 右外联结：
+##### 7.8.2.2. 右外联结：
 
 ```sql
 SELECT d.employee_id, d.employee_name, e.dept_name
@@ -555,7 +555,7 @@ FROM EmployeeTB AS e
 RIGHT OUTER JOIN DeptTB AS d ON d.dept_id=e.dept_id;
 ```
 
-##### 完全外联结：
+##### 7.8.2.3. 完全外联结：
 
 ```sql
 SELECT e.employee_id, e.employee_name, d.dept_name FROM EmployeeTB AS e FULL OUTER JOIN DeptTB AS d ON d.dept_id=e.dept_id;
@@ -563,11 +563,11 @@ SELECT e.employee_id, e.employee_name, d.dept_name FROM EmployeeTB AS e FULL OUT
 SELECT e.employee_id, e.employee_name, d.dept_name FROM EmployeeTB AS e LEFT OUTER JOIN DeptTB AS d ON d.dept_id=e.dept_id UNION SELECT e.employee_id, e.employee_name, d.dept_name FROM EmployeeTB AS e RIGHT OUTER JOIN DeptTB AS d ON d.dept_id=e.dept_id;
 ```
 
-#### 自连接
+#### 7.8.3. 自连接
 
-### 分页和排序
+### 7.9. 分页和排序
 
-#### 排序
+#### 7.9.1. 排序
 
 ```sql
 /*============== 排序 ================
@@ -590,7 +590,7 @@ WHERE subjectname='数据库结构-1'
 ORDER BY StudentResult DESC
 ```
 
-#### 分页
+#### 7.9.2. 分页
 
 ```sql
 /*============== 分页 ================
@@ -610,11 +610,11 @@ ORDER BY StudentResult DESC
 
 ```
 
-## MySQL 函数
+## 8. MySQL 函数
 
-### 常用函数
+### 8.1. 常用函数
 
-#### 数据函数
+#### 8.1.1. 数据函数
 
 ```sql
  SELECT ABS(-8);  /*绝对值*/
@@ -624,7 +624,7 @@ ORDER BY StudentResult DESC
  SELECT SIGN(0); /*符号函数: 负数返回-1,正数返回1,0返回0*/
 ```
 
-#### 字符串函数
+#### 8.1.2. 字符串函数
 
 ```sql
  SELECT CHAR_LENGTH('Qianzai坚持就能成功'); /*返回字符串包含的字符数*/
@@ -643,7 +643,7 @@ ORDER BY StudentResult DESC
  FROM student WHERE studentname LIKE '周%';
 ```
 
-#### 日期和时间函数
+#### 8.1.3. 日期和时间函数
 
 ```sql
  SELECT CURRENT_DATE();   /*获取当前日期*/
@@ -661,14 +661,14 @@ ORDER BY StudentResult DESC
  SELECT SECOND(NOW());
 ```
 
-#### 系统信息函数
+#### 8.1.4. 系统信息函数
 
 ```sql
  SELECT VERSION();  /*版本*/
  SELECT USER();     /*用户*/
 ```
 
-### 聚合函数
+### 8.2. 聚合函数
 
 | 函数名称 | 描述                                                                          |
 | -------- | ----------------------------------------------------------------------------- |
@@ -705,7 +705,7 @@ ORDER BY StudentResult DESC
  SELECT MIN(StudentResult) AS 最低分 FROM result;
 ```
 
-### MD5 加密
+### 8.3. MD5 加密
 
 `md5`的全称是`md5信息摘要算法`（英文：MD5 Message-Digest Algorithm ），一种被广泛使用的**密码散列函数**，可以产生一个 128 位（16 字节，1 字节 8 位）的散列值（常见的是用 32 位的 16 进制表示，比如：0caa3b23b8da53f9e4e041d95dc8fa2c），用于确保信息传输的完整一致。
 
@@ -738,29 +738,29 @@ INSERT INTO testmd5 VALUES(4,'Qianzai3',md5('123456'));
 SELECT * FROM testmd5 WHERE `name`='Qianzai' AND pwd=MD5('123456');
 ```
 
-## 事务
+## 9. 事务
 
-### 事务四大特性（ACID）
+### 9.1. 事务四大特性（ACID）
 
-#### 原子性（atomicity）：
+#### 9.1.1. 原子性（atomicity）：
 
 一个事务必须被视为一个不可分割的最小工作单元，整个事务中的所有操作要么全部提交成功，要么全部失败回滚，对于一个事务来说，不可能只执行其中的一部分操作，这就是事务的原子性。
 
-#### 一致性（consistency）：
+#### 9.1.2. 一致性（consistency）：
 
 数据库总是从一个一致性的状态转换到另一个一致性的状态。在前面的例子中，一致性确保了，即使在执行第三、四条语句之间时系统崩溃，前面执行的语句也不会生效。因为事务最终没有提交，所以事务中所做的修改也不会保存到数据库中。
 
-#### 隔离性（isolation）：
+#### 9.1.3. 隔离性（isolation）：
 
 通常来说，一个事务所做的修改在最终提交以前，对其他事务是不可见的。当执行完第三条语句、第四条语句还未开始时，此时有另外一个程序开始运行，则看不到第三条语句做出的改变。
 
-#### 持久性（durability）：
+#### 9.1.4. 持久性（durability）：
 
 一旦事务提交，则其所做的修改就会永久保存到数据库中。此时即使系统崩溃，修改的数据也不会丢失。持久性是个有点模糊的概念，因为实际上持久性也分很多不同的级别。有些持久性策略能够提供非常强的安全保障，而有些则未必。而且不可能有能做到 100%的持久性保证策略。
 
 [事务 ACID 理解](https://blog.csdn.net/dengjili/article/details/82468576)
 
-### 事务语法
+### 9.2. 事务语法
 
 ```sql
 -- 使用set语句来改变自动提交模式
@@ -789,13 +789,13 @@ ROLLBACK TO SAVEPOINT 保存点名称 -- 回滚到保存点
 RELEASE SAVEPOINT 保存点名称 -- 删除保存点
 ```
 
-## 索引
+## 10. 索引
 
 [MySQL 索引背后的数据结构及算法原理](https://blog.codinglabs.org/articles/theory-of-mysql-index.html)
 
 > `MySQL`官方对索引的定义为：**索引（Index）是帮助 MySQL 高效获取数据的数据结构。**提取句子主干，就可以得到索引的本质：**索引是数据结构。**
 
-### 索引的分类
+### 10.1. 索引的分类
 
 [mysql 索引类型以及创建](https://www.jianshu.com/p/7a0c215edb1d)
 
@@ -843,7 +843,7 @@ MySQL 5.6 及以后的版本，MyISAM 和 InnoDB 存储引擎均支持全文索�
 */
 ```
 
-### 索引测试
+### 10.2. 索引测试
 
 _建表插入 100w 条数据_
 
@@ -880,15 +880,15 @@ END;
 SELECT mock_data() -- 执行此函数 生成一百万条数据
 ```
 
-### 索引原则
+### 10.3. 索引原则
 
 [mysql 建索引的几大原则](https://blog.csdn.net/u013412790/article/details/51612304)
 
-## 权限管理
+## 11. 权限管理
 
 关于`mysql`的权限简单的理解就是`mysql`允许你做你全力以内的事情，不可以越界。比如只允许你执行`select`操作，那么你就不能执行`update`操作。只允许你从某台机器上连接`mysql`，那么你就不能从除那台机器以外的其他机器连接`mysql`。
 
-### 权限说明
+### 11.1. 权限说明
 
 | **权限**                | **权限级别**           | **权限说明**                                                                                                            |
 | ----------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -968,9 +968,9 @@ REVOKE 权限列表 ON 表名 FROM 用户名
 REVOKE ALL PRIVILEGES, GRANT OPTION FROM 用户名    -- 撤销所有权限
 ```
 
-## Mysql 备份
+## 12. Mysql 备份
 
-### 备份恢复策略
+### 12.1. 备份恢复策略
 
 - 确定要备份的表的存储引擎是事务型还是非事务型，两种不同的存储引擎备份方式在处理数据一致性方面是不太一样的。
 - 确定使用全备份还是增量备份。全备份的优点是备份保持最新备份，恢复的时候可以花费更少的时间；缺点是如果数据量大，将会花费很多的时间，并对系统造成较长时间的压力。增量备份相反，只需要备份每天的增量日志，备份时间少，对负载压力也小；缺点就是恢复的时候需要全备份加上次备份到故障前的所有日志，恢复时间长一些。
@@ -981,7 +981,7 @@ REVOKE ALL PRIVILEGES, GRANT OPTION FROM 用户名    -- 撤销所有权限
 
 > 在 `MySQL`中，逻辑备份的最大优点是对于各种存储引擎都可以用同样的方法来备份；而物理备份则不同，不同的存储引擎有着不同的备份方法，因此，对于不同存储引擎混合的数据库，逻辑备份会简单一点。
 
-### 命令备份
+### 12.2. 命令备份
 
 ```sql
 -- 导出
@@ -1003,48 +1003,48 @@ REVOKE ALL PRIVILEGES, GRANT OPTION FROM 用户名    -- 撤销所有权限
 　　mysql -u用户名 -p密码 库名 < 备份文件
 ```
 
-## 规范数据库设计
+## 13. 规范数据库设计
 
 - 节省数据的存储空间
 - 能够保证数据的完整性
 - 方便进行数据库应用系统的开发
 
-### 三大范式（表设计）
+### 13.1. 三大范式（表设计）
 
 [三大范式的通俗理解](https://www.cnblogs.com/wsg25/p/9615100.html)
 
-#### 第一范式（1NF）：
+#### 13.1.1. 第一范式（1NF）：
 
 要求数据库表的每一列都是不可分割的原子数据项。
 
-#### 第二范式（2NF）：
+#### 13.1.2. 第二范式（2NF）：
 
 在 1NF 的基础上，非码属性必须完全依赖于候选码（在 1NF 基础上消除非主属性对主码的部分函数依赖）
 
 第二范式需要确保数据库表中的每一列都和主键相关，而不能只与主键的某一部分相关（主要针对联合主键而言）。
 
-#### 第三范式（3NF）：
+#### 13.1.3. 第三范式（3NF）：
 
 在 2NF 基础上，任何非属性不依赖于其它非主属性（在 2NF 基础上消除传递依赖）
 
 第三范式需要确保数据表中的每一列数据都和主键直接相关，而不能间接相关。
 
-#### 反范式
+#### 13.1.4. 反范式
 
 ```markdown
 - 优点：减少了连接，可以更好的利用索引进行筛选和排序，对查询操作可以提高性能。
 - 缺点：要在数据一致性与查询之间找到平衡点，符合业务场景的设计才是好的设计
 ```
 
-### 存储引擎的选择
+### 13.2. 存储引擎的选择
 
-#### InnoDB:
+#### 13.2.1. InnoDB:
 
 ```markdown
 1.灾难恢复性好 2.支持 4 中级别的事务，默认事务的隔离级别是 Repeatable Read，事务支持是通过 MVCC 多版本并发控制来提供的。 3.使用行级锁，并发性能高。 4.使用此存储引擎的表，数据的物理组织形式是簇表，数据按主键来组织，即主键索引和数据是在一起的，B+树就是这样的 5.实现缓冲管理，能缓存索引也能缓存数据。 6.支持外键 7.支持热备份
 ```
 
-#### MyISAM:
+#### 13.2.2. MyISAM:
 
 ```markdown
 1.配合锁，实现操作系统下的复制备份，迁移 2.使用表记锁并发性差 3.支持全文索引 4.主机宕机后，表容易损坏，灾难恢复性不佳 5.无事务支持 6.只缓存索引，数据缓存利用操作系统缓冲区实现的，引发过多系统调用，性能不佳。 7.数据紧凑存储，可以获得更快的索引和更快的全表扫描性能。
