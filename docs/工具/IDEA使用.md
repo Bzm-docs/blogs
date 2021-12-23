@@ -278,3 +278,4 @@ publish: true
 
 ##### [IDEA JRebel插件热部署 ](https://juejin.im/post/6844903974575800334)
 
+##### [不推荐别的了，IDEA 自带的数据库工具就很牛逼！ ](https://www.cnblogs.com/javastack/p/14716523.html)

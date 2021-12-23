@@ -1,5 +1,5 @@
 ---
-date: 2021-07-29
+jdate: 2021-07-29
 autoIgnore: false
 autoSort: 1000
 categories:
@@ -141,10 +141,16 @@ sudo pacman -S the_silver_searcher
 
 ```shell
 cd ~
-sudo pacman -S ranger w3m highlight ueberzug nerd-fonts atool p7zip
+sudo pacman -S ranger w3m highlight ueberzug nerd-fonts atool p7zip ffmpegthumbnailer
 
 vim ~/.config/ranger/rc.conf
 default_linemode devicons2
+```
+
+### dwm
+
+```
+pacman -S wmname
 ```
 
 ### 微信
@@ -152,6 +158,9 @@ default_linemode devicons2
 https://github.com/huan/docker-wechat
 
 https://github.com/vufa/deepin-wine-wechat-arch
+
+> 将 \$HOME/.deepinwine/Spark-WeChat/user.reg 文件中的 Noto Sans CJK SC Regular 全部替换成 Noto Sans CJK SC 就行了
+> [微信输入框中输入中文文字显示异常](https://github.com/vufa/deepin-wine-wechat-arch/issues/129#issuecomment-886052122)
 
 ### 代理
 
@@ -177,6 +186,8 @@ sudo pacman -S xmind-zen
 yay -S wps-office-cn wps-office-mui-zh-cn ttf-wps-fonts python-xlsx2csv
 
 sudo pacman -S flameshot dunst
+
+sudo pacman -S obs-studio
 ```
 
 ### 鼠标速度
@@ -228,3 +239,4 @@ add Lock = Caps_Lock
 ```bash
 xmodmap ~/.Xmodmap
 ```
+

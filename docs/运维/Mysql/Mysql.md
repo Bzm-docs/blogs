@@ -1,13 +1,13 @@
 ---
 title: Mysq学习
 date: 2020-05-08
+autoSort: 1000
 categories:
   - 运维
 tags:
   - Mysql
 isShowComments: true
 publish: true
-autoNext: Httpd
 ---
 
 # Mysq 学习
@@ -162,7 +162,7 @@ MySQL 的`AUTO_INCREMENT`属性可以用于在插入新的记录的时候，进�
 
 ## 6. 3、Mysql 命令行
 
-### 6.1. 3.1、连接数据库
+### 连接数据库
 
 ```shell
  mysql -h主机地址 -u用户名 -p用户密码
@@ -175,11 +175,11 @@ flush privileges;	--刷新权限
 exit; --退出连接
 ```
 
-### 6.2. 3.2、操作数据库
+### 操作数据库
 
 > 操作数据库>操作数据库中的表>操作数据库中表的数据
 
-#### 6.2.1. 3.2.1、操作数据库
+#### 操作数据库
 
 ```sql
 --创建数据库
@@ -195,7 +195,7 @@ use h1；
 show databases;
 ```
 
-#### 6.2.2. 3.2.2、操作表
+#### 操作表
 
 ```sql
 --创建表
