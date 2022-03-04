@@ -1,0 +1,6 @@
+[submodule "docs/云计算/Docker"]
+	path = docs/云计算/Docker
+	url = https://github.com/Bzm-docs/Docker.git
+[submodule "docs/云计算/kubernetes"]
+	path = docs/云计算/kubernetes
+	url = https://github.com/Bzm-docs/kubernetes.git
