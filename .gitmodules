@@ -4,3 +4,6 @@
 [submodule "docs/云计算/kubernetes"]
 	path = docs/云计算/kubernetes
 	url = https://github.com/Bzm-docs/kubernetes.git
+[submodule "docs/后端/Java/shiro"]
+	path = docs/后端/Java/shiro
+	url = https://github.com/Bzm-docs/shiro.git
