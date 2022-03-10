@@ -13,3 +13,6 @@
 [submodule "docs/运维/Mysql"]
 	path = docs/运维/Mysql
 	url = https://github.com/Bzm-docs/Mysql.git
+[submodule "docs/后端/其他/Redis"]
+	path = docs/后端/其他/Redis
+	url = https://github.com/Bzm-docs/Redis.git
