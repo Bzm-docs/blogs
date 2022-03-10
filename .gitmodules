@@ -10,3 +10,6 @@
 [submodule "docs/后端/Java/RabbitMQ"]
 	path = docs/后端/Java/RabbitMQ
 	url = https://github.com/Bzm-docs/RabbitMQ.git
+[submodule "docs/运维/Mysql"]
+	path = docs/运维/Mysql
+	url = https://github.com/Bzm-docs/Mysql.git
