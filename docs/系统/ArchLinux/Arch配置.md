@@ -87,6 +87,8 @@ yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
 sudo pacman -Syu
 ```
 
+> https://github.com/archlinuxcn/mirrorlist-repo
+
 ```sh
 sudo pacman -S git wget curl base-devel xorg networkmanager netctl pcsclite nerd-fonts
 
